@@ -12,4 +12,9 @@ class MainController extends AbstractController
     public function home(): Response {
         return new Response('Hello World!');
     }
+    #[Route('/other', name: 'main_other', methods: ['GET'])]
+    public function other(): Response {
+        return new Response('other test!');
+    }
+
 }
