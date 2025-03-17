@@ -14,9 +14,13 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-    <body>
+    <body class="d-flex flex-column">
     {{ include('_header.html.twig') }}
+    <main class="flex-grow-1">
+
     {% block body %}{% endblock %}
+    </main>
+
     <footer>
         ©Bucket-List
     </footer>
