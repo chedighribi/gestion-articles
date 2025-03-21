@@ -16,12 +16,18 @@ final class WishController extends AbstractController
     public function list( WishRepository $wishRepository): Response
     {
         $wishes = $wishRepository->findBy(['isPublished' => true], ['dateCreated' => 'DESC']);
+        if (!$wishes) {
+            throw $this->createNotFoundException("sorry dude" );
+        }
         return $this->render('wish/list.html.twig', [ "wishes" => $wishes]);
     }
     #[Route('/detail/{id}', name: 'detail')]
 public function detail($id, WishRepository $wishRepository): Response
     {
         $wish = $wishRepository->find($id);
+        if (!$wish) {
+            throw $this->createNotFoundException('sorry dude wish number '. $id . ' does not exist');
+        }
         return $this->render('wish/detail.html.twig', [ "wish" => $wish]);
     }
 

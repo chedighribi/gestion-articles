@@ -2,6 +2,7 @@
 
 {% block body %}
     {{ wish.title }}
+    {{ wish.dateCreated | date('d/m/Y') }}
 {% endblock %}
 
 {% block title %}
