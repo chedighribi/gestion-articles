@@ -3,6 +3,7 @@
 {% block body %}
     {{ wish.title }}
     {{ wish.dateCreated | date('d/m/Y') }}
+    <a href="{{ path('wish_edit', {id: wish.id}) }}">modifier</a>
 {% endblock %}
 
 {% block title %}
