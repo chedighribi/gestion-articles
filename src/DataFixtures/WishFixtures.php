@@ -15,7 +15,7 @@ class WishFixtures extends Fixture
         {
             $wish = new Wish();
             $wish->setTitle($faker->sentence(2));
-            $wish->setDescription($faker->realText(200));
+            $wish->setDescription($faker->realText(50));
             $wish->setAuthor($faker->name());
             $wish->setDateCreated($faker->dateTime());
             $wish->setIsPublished(boolval(70));

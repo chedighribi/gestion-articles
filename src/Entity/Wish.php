@@ -18,7 +18,7 @@ class Wish
     #[ORM\Column(length: 250)]
     private ?string $title = null;
 
-    #[Assert\length( min: 10, max: 100, minMessage: 'fait un effort', maxMessage: 'un peu moins')]
+    #[Assert\Length( max: 100,  maxMessage: 'un peu moins')]
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $description = null;
 
