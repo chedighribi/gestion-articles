@@ -34,6 +34,11 @@ class Wish
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateUpdated = null;
 
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotNull()]
+    private ?Category $category = null;
+
     public function __construct()
     {
         $this->isPublished = false;
@@ -112,6 +117,18 @@ class Wish
     public function setDateUpdated(?\DateTimeInterface $dateUpdated): static
     {
         $this->dateUpdated = $dateUpdated;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }
